@@ -1,0 +1,60 @@
+/*	ESEMPIO FILE INPUT IN math	*/
+
+// CALCOLO MCD
+
+{int, int, int} => {z, w, temp}
+{96, 16} => {z, w}
+
+?{not (z = w)} => *{
+	?{z < w} => {
+		{z, w} => {temp, z}
+		{temp} => {w}
+	}
+	{z - w} => {z}
+}
+{z} => {print}
+
+
+// FIBONACCI
+
+{int, int, int, int, int} => { i, k, m, n, res}
+
+{10} => {k}
+?{k=0} => {
+    {0} => {res}
+}:{
+    {1, 0, 1} => {i, m, n}
+    ?{i <= k-1} => *{
+        {n, n+m, i+1} => {m, n, i}
+	{m} => {print}
+    }
+    {n} => {res}
+    {res} => {print}
+}
+
+
+// TEST PRIMALITA
+
+{ int , int , int , bool } => {o , p , q , primo }
+{1237 , 2 , true } => {o , p , primo }
+?{ p < o /2 and primo } => *{
+{ o - ( o / p ) * p , p + 1} => {q , p }
+{ q != 0} => { primo }
+}
+{ primo } => { print }
+
+// WHILE CON STATEMENT IN CODA (~ FOR)
+
+
+{int} => {a}
+{0} => {a}
+?{a<21} => + {
+	{a}=>{print}
+}[{a+2}=>{a}]
+
+
+// FOR 
+#{a,[0...5]} => #{ {a}=>{print} }
+
+
+$
